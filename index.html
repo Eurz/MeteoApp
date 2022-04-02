@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/weather-icons.min.css" />
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&family=Roboto&display=swap');
+        </style>
+        <link
+            rel="icon"
+            href="https://www.bedejiel.com/wp-content/uploads/2020/06/favicon.png"
+        />
+        <script src="js/app.js" defer></script>
+
+        <title>Meteo API</title>
+    </head>
+    <body>
+        <div class="container">
+            <div id="message"></div>
+            <header class="header">
+                <h1>Ma Météo</h1>
+            </header>
+            <main class="main">
+                <section class="resume">
+                    <div class="current-date">
+                        <div class="day" id="currentDay">Jour</div>
+
+                        <div class="date" id="currentDate">Date du jour</div>
+                        <div class="city-name" id="city-name">Nom ville</div>
+                    </div>
+                    <!-- <h3>
+                        <span id="ville">...</span>
+                        <span class="tooltip"
+                            >Tapez une autre ville si vous le souhaitez</span
+                        >
+                    </h3> -->
+                    <div class="infos">
+                        <div>
+                            <i class="wi"></i>
+
+                            <div id="conditions"></div>
+                        </div>
+                        <div class="temperature">
+                            <span id="temperature">XX C°</span>
+                            <p class="feel-like">
+                                Ressenti : <span id="feels_like"></span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="details">
+                    <div>
+                        <h2>Météo dans votre ville</h2>
+                        <input
+                            placeholder="Saisissez une ville"
+                            type="text"
+                            name="city"
+                            id="city"
+                            class="form-input"
+                        />
+                        <!-- <button id="btn-search">Go</button> -->
+                    </div>
+
+                    <p class="humidity">
+                        Humidité : <span id="humidity"></span>
+                    </p>
+                    <p class="pressure">
+                        Pression : <span id="pressure"></span>
+                    </p>
+                </section>
+            </main>
+            <footer class="footer">Version 1.0</footer>
+        </div>
+    </body>
+</html>
