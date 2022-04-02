@@ -14,3 +14,5 @@ In this project, I use (or i'll) use :
 -   the fetch API
 -   basics javascript events
 -   css (sass to implement it :))
+
+Thanks
