@@ -1,6 +1,4 @@
-const apiKey = '03b92fba65774279cd4a4579ad496ed3'
-const maVille = 'Beauvoisin'
-const defaultCoords = { lon: 4.3234, lat: 43.7183 }
+
 
 const weatherIcons = {
     Rain: 'wi wi-day-rain',
