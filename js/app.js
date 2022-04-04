@@ -1,4 +1,4 @@
-
+const apiKey = ''
 
 const weatherIcons = {
     Rain: 'wi wi-day-rain',
