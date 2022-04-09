@@ -167,6 +167,7 @@ function displayWeatherInfos(data) {
     dailyWeather.forEach((day) => {
         const target = createDiv('day-infos')
         const dayDate = formatDate(new Date(day.dt * 1000))
+        console.log(dayDate)
         dayResults = `<div>${dayDate.day}</div>`
         dayResults += `<div>${Math.round(day.temp.day)} °C</div>`
         dayResults += `<div>${classFromWeather(
@@ -180,7 +181,6 @@ function displayWeatherInfos(data) {
         rootEl.appendChild(target)
     })
 
-    // setMessage(`${city} a été trouvée`)
     document.querySelector('#feels_like').textContent = feelsLike + ' °C'
     document.querySelector('#humidity').textContent = humidity + ' %'
     document.querySelector('#pressure').textContent = pressure + ' hPa'
@@ -200,8 +200,8 @@ function formatDate(timestamp, userOptions = {}, lang = 'fr-FR') {
     const defaultOptions = {
         month: 'long',
         day: 'numeric',
-        year: 'numeric',
         weekday: 'long',
+        year: 'numeric',
     }
     const options = Object.assign({}, defaultOptions, userOptions)
     // console.log('Options = ', options)
@@ -215,12 +215,15 @@ function formatDate(timestamp, userOptions = {}, lang = 'fr-FR') {
     const dateFormat = new Intl.DateTimeFormat('fr-FR', defaultOptions).format(
         timestamp * 1000
     )
-    return { day: currentDay === day ? `Aujourd'hui` : day, dateFormat }
+    console.log('T = ', timestamp)
+    console.log('D = ', Date.now())
+    return { day: day, dateFormat }
 }
-formatDate(1649156400)
+
 function classFromWeather(condition) {
     return `<i class='wi ${weatherIcons[condition]}'></i>`
 }
+
 const inputSearch = document.querySelector('#city')
 const btnSearch = document.querySelector('#btn-search')
 function validateSearch(e) {

@@ -15,4 +15,4 @@ In this project, I use (or i'll) use :
 -   basics javascript events
 -   css (sass to implement it :))
 
-Thanks!
+Thanks a lot!
