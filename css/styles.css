@@ -189,6 +189,7 @@ section {
 }
 .specs {
     display: flex;
+    margin-bottom: 20px;
 }
 .specs i.wi {
     font-size: 2em;

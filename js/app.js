@@ -32,17 +32,31 @@ const weatherIcons = {
  */
 async function main(isSearching = false, dataObj) {
     let coords = await dataObj
-    // coords = defaultCoords
-
-    const meteo = await fetch(
-        'https://api.openweathermap.org/data/2.5/onecall?lat=' +
-            coords.latitude +
-            '&lon=' +
-            coords.longitude +
-            '&apikey=' +
-            apiKey +
-            '&lang=fr&units=metric'
+    const url = new URL(
+        'https://api.openweathermap.org/data/2.5/onecall?q=toto'
     )
+    var paramsString = 'q=URLUtils.searchParams&topic=api'
+    var searchParams = new URLSearchParams()
+    searchParams.append('lat', coords.latitude)
+    searchParams.append('lon', coords.longitude)
+    searchParams.append('apiKey', apiKey)
+    searchParams.append('lang', 'fr')
+    searchParams.append('units', 'metric')
+    url.search = searchParams
+
+    console.log(url.toJSON())
+
+    // Itère sur les paramètres de recherche.
+    // const meteo = await fetch(
+    //     'https://api.openweathermap.org/data/2.5/onecall?lat=' +
+    //         coords.latitude +
+    //         '&lon=' +
+    //         coords.longitude +
+    //         '&apikey=' +
+    //         apiKey +
+    //         '&lang=fr&units=metric'
+    // )
+    const meteo = await fetch(url)
         .then((response) => {
             return response.json()
         })
@@ -167,7 +181,6 @@ function displayWeatherInfos(data) {
     dailyWeather.forEach((day) => {
         const target = createDiv('day-infos')
         const dayDate = formatDate(new Date(day.dt * 1000))
-        console.log(dayDate)
         dayResults = `<div>${dayDate.day}</div>`
         dayResults += `<div>${Math.round(day.temp.day)} °C</div>`
         dayResults += `<div>${classFromWeather(
