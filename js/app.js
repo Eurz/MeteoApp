@@ -136,7 +136,7 @@ function geolocalisation() {
  * @param {Object} data - Provide data weather for a city
  */
 function displayWeatherInfos(data) {
-    // console.log('DisplayWeatherInfos = ', data)
+    console.log('DisplayWeatherInfos = ', data)
     const lon = data.lon
     const lat = data.lat
     const temperature = data.current.temp
@@ -205,18 +205,16 @@ function formatDate(timestamp, userOptions = {}, lang = 'fr-FR') {
     }
     const options = Object.assign({}, defaultOptions, userOptions)
     // console.log('Options = ', options)
-
+    console.log(options)
     const day = new Intl.DateTimeFormat(lang, {
         weekday: 'long',
     }).format(timestamp)
     const currentDay = new Intl.DateTimeFormat(lang, {
         weekday: 'long',
     }).format(Date.now())
-    const dateFormat = new Intl.DateTimeFormat('fr-FR', defaultOptions).format(
+    const dateFormat = new Intl.DateTimeFormat('fr-FR', options).format(
         timestamp * 1000
     )
-    console.log('T = ', timestamp)
-    console.log('D = ', Date.now())
     return { day: day, dateFormat }
 }
 
